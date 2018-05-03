@@ -3,7 +3,7 @@ package com.example.obernalp.e_games;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends MainGame {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

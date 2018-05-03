@@ -1,18 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_centerInParent="true"
+    android:background="@color/main_background"
+    tools:context="com.example.obernalp.e_games.MainActivity">
 
     <TextView
+        android:id="@+id/main_tv_title"
+        android:text="@string/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_tv_title_height"
+        android:layout_marginTop="@dimen/main_tv_title_marginTop"
+        android:textSize="@dimen/main_tv_title_textSize"
+        android:fontFamily="@font"
+        android:textColor="@color/colorAccent"
+        android:fitsSystemWindows="true"
+        android:gravity="center"
+        android:layout_centerHorizontal="true" />
+
+    <GridLayout
+        android:id="@+id/main_gl_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:alignmentMode="alignMargins"
+        android:layout_centerHorizontal="true"
+        android:columnCount="2"
+        android:layout_marginTop="@dimen/main_grid_marginTop"
+        android:rowCount="2"
+        android:layout_below="@id/main_tv_title">
 
-</android.support.constraint.ConstraintLayout>
+        <!-- Row 1 -->
+        <!-- Column 1 -->
+        <android.support.v7.widget.CardView
+            android:id="@+id/main_cv_infiltrado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/main_card_elevation"
+            app:cardCornerRadius="@dimen/main_card_cardCornerRadius"
+            android:layout_marginBottom="@dimen/main_card_marginBottom"
+            android:layout_marginStart="@dimen/main_card_marginStart"
+            android:layout_marginEnd="@dimen/main_card_marginEnd">
+
+            <RelativeLayout
+                android:layout_width="@dimen/main_card_width"
+                android:layout_height="@dimen/main_card_height">
+
+                <ImageView
+                    android:layout_width="@dimen/main_card_icon_width"
+                    android:layout_height="@dimen/main_card_icon_width"
+                    android:layout_centerInParent="true"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/main_game_1"
+                    android:src="@drawable/ic_infiltrado" />
+                <TextView
+                    android:text="@string/main_game_1"
+                    android:layout_width="@dimen/main_card_band_width"
+                    android:layout_height="@dimen/main_card_band_height"
+                    android:textAlignment="center"
+                    android:rotation="315"
+                    android:layout_marginTop="@dimen/main_card_band_marginTop"
+                    android:layout_marginStart="@dimen/main_card_band_marginStart"
+                    android:textSize="@dimen/main_card_band_textSize"
+                    android:background="@color/bandColor"
+                    android:textColor="@color/cardColor" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <!-- Column 2 -->
+        <android.support.v7.widget.CardView
+            android:id="@+id/main_cv_espia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/main_card_elevation"
+            app:cardCornerRadius="@dimen/main_card_cardCornerRadius"
+            android:layout_marginBottom="@dimen/main_card_marginBottom"
+            android:layout_marginStart="@dimen/main_card_marginStart"
+            android:layout_marginEnd="@dimen/main_card_marginEnd">
+            <RelativeLayout
+                android:layout_width="@dimen/main_card_width"
+                android:layout_height="@dimen/main_card_height">
+                <ImageView
+                    android:layout_width="@dimen/main_card_icon_width"
+                    android:layout_height="@dimen/main_card_icon_width"
+                    android:layout_centerInParent="true"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/main_game_2"
+                    android:src="@drawable/ic_ladron" />
+                <TextView
+                    android:text="@string/main_game_2"
+                    android:layout_width="@dimen/main_card_band_width"
+                    android:layout_height="@dimen/main_card_band_height"
+                    android:textAlignment="center"
+                    android:rotation="315"
+                    android:layout_marginTop="@dimen/main_card_band_marginTop"
+                    android:layout_marginStart="@dimen/main_card_band_marginStart"
+                    android:textSize="@dimen/main_card_band_textSize"
+                    android:background="@color/bandColor"
+                    android:textColor="@color/cardColor" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <!-- Row 2 -->
+        <!-- Column 1 -->
+        <android.support.v7.widget.CardView
+            android:id="@+id/main_cv_psicologo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/main_card_elevation"
+            app:cardCornerRadius="@dimen/main_card_cardCornerRadius"
+            android:layout_marginBottom="@dimen/main_card_marginBottom"
+            android:layout_marginStart="@dimen/main_card_marginStart"
+            android:layout_marginEnd="@dimen/main_card_marginEnd">
+            <RelativeLayout
+                android:layout_width="@dimen/main_card_width"
+                android:layout_height="@dimen/main_card_height">
+                <ImageView
+                    android:layout_width="@dimen/main_card_icon_width"
+                    android:layout_height="@dimen/main_card_icon_width"
+                    android:layout_centerInParent="true"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/main_game_3"
+                    android:src="@drawable/ic_lobo"/>
+                <TextView
+                    android:text="@string/main_game_3"
+                    android:layout_width="@dimen/main_card_band_width"
+                    android:layout_height="@dimen/main_card_band_height"
+                    android:textAlignment="center"
+                    android:rotation="315"
+                    android:layout_marginTop="@dimen/main_card_band_marginTop"
+                    android:layout_marginStart="@dimen/main_card_band_marginStart"
+                    android:textSize="@dimen/main_card_band_textSize"
+                    android:background="@color/bandColor"
+                    android:textColor="@color/cardColor" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <!-- Column 2 -->
+        <android.support.v7.widget.CardView
+            android:id="@+id/main_cv_ladron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/main_card_elevation"
+            app:cardCornerRadius="@dimen/main_card_cardCornerRadius"
+            android:layout_marginBottom="@dimen/main_card_marginBottom"
+            android:layout_marginStart="@dimen/main_card_marginStart"
+            android:layout_marginEnd="@dimen/main_card_marginEnd">
+            <RelativeLayout
+                android:layout_width="@dimen/main_card_width"
+                android:layout_height="@dimen/main_card_height">
+                <ImageView
+                    android:layout_width="@dimen/main_card_icon_width"
+                    android:layout_height="@dimen/main_card_icon_width"
+                    android:layout_centerInParent="true"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/main_game_4"
+                    android:src="@drawable/ic_oveja"/>
+                <TextView
+                    android:text="@string/main_game_4"
+                    android:layout_width="@dimen/main_card_band_width"
+                    android:layout_height="@dimen/main_card_band_height"
+                    android:textAlignment="center"
+                    android:rotation="315"
+                    android:layout_marginTop="@dimen/main_card_band_marginTop"
+                    android:layout_marginStart="@dimen/main_card_band_marginStart"
+                    android:textSize="@dimen/main_card_band_textSize"
+                    android:background="@color/bandColor"
+                    android:textColor="@color/cardColor" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+    </GridLayout>
+
+    <ImageView xmlns:app="http://www.picturetopeople.org/text_generator/others/transparent/transparent-text-generator.html"
+        android:id="@+id/main_iv_infiltrado"
+        android:layout_width="@dimen/main_infiltrado_image_width"
+        android:layout_height="@dimen/main_infiltrado_image_height"
+        android:layout_below="@id/main_gl_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/main_infiltrado_image_marginTop"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/main_txt_infiltrado"/>
+
+</RelativeLayout>

@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">e-Games</string>
+
+    <!-- Main Acivity -->
+    <string name="main_title">Selecciona un juego</string>
+    <string name="main_game_1">Infiltrado</string>
+    <string name="main_game_2">Espía</string>
+    <string name="main_game_3">Psicólogo</string>
+    <string name="main_game_4">Ladrón</string>
+
+    <!-- SetRules Acivity -->
+    <string name="rules_title">Establece las reglas del juego</string>
+    <string name="rules_players">4 jugadores</string>
+    <string name="rules_infiltrados">1 infiltrado</string>
+    <string name="rules_database">Random</string>
+    <string name="rules_play">Jugar</string>
+    <string name="title_activity_settings">Settings</string>
 </resources>
