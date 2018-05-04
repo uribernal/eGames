@@ -9,5 +9,7 @@
     <color name="cardColor">#e5ffffff</color>
     <color name="bandColor">#ffd77b</color>
 
+    <color name="testColor1">#2fff00</color>
+    <color name="testColor2">#ff1100</color>
 
 </resources>
