@@ -5,10 +5,13 @@
     <color name="colorAccent">#4d4c4c</color>
 
     <!-- Main Acivity -->
-    <color name="main_background">#adededed</color>
+    <color name="mainBackgroundColor">#adededed</color>
     <color name="cardColor">#e5ffffff</color>
     <color name="bandColor">#ffd77b</color>
 
+    <color name="deletePlayerColor">#ff6f60</color>
+
+    <!-- Test Colors -->
     <color name="testColor1">#2fff00</color>
     <color name="testColor2">#ff1100</color>
 

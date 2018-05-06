@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/players_cv_height"
+    android:layout_margin="@dimen/players_cv_margin"
+    app:cardElevation="@dimen/players_cv_elevation">
+
+
+    <RelativeLayout
+        android:id="@+id/view_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/deletePlayerColor">
+
+        <ImageView
+            android:id="@+id/delete_icon"
+            android:layout_width="@dimen/players_cv_delete_width"
+            android:layout_height="@dimen/players_cv_delete_height"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/players_cv_delete_marginEnd"
+            android:contentDescription="@string/players_delete"
+            android:src="@drawable/ic_trash" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/players_cv_delete_marginEnd"
+            android:layout_toStartOf="@id/delete_icon"
+            android:text="@string/players_delete"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/players_cv_player_textSize" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/view_foreground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:padding="@dimen/players_cv_delete_marginEnd">
+
+        <TextView
+            android:id="@+id/player_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/players_name"
+            android:textAlignment="center"
+            android:textSize="@dimen/players_cv_delete_textSize" />
+
+    </RelativeLayout>
+</RelativeLayout>

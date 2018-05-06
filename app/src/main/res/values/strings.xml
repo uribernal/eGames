@@ -14,5 +14,14 @@
     <string name="rules_infiltrados">1 infiltrado</string>
     <string name="rules_database">Random</string>
     <string name="rules_play">Jugar</string>
+
+
+    <!-- Select Players Activity -->
+    <string name="players_title">Edita los jugadores</string>
+    <!--*** Item Select Player ***-->
+    <string name="players_delete">DELETE</string>
+    <string name="players_name">Player 0</string>
+
+
     <string name="title_activity_settings">Settings</string>
 </resources>
