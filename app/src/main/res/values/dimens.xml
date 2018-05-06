@@ -65,9 +65,21 @@
     <dimen name="players_cv_player_textSize">13sp</dimen>
     <dimen name="players_cv_delete_textSize">18sp</dimen>
 
-    <!-- Select Players Activity -->
+    <!-- Game Activity -->
     <dimen name="game_rv_marginTop">30dp</dimen>
-
+    <!--*** Popup Reveal Role ***-->
+    <dimen name="game_ll_height">305dp</dimen>
+    <dimen name="game_ll_width">205dp</dimen>
+    <dimen name="game_ll_padding">5dp</dimen>
+    <dimen name="game_tv_X_height">30dp</dimen>
+    <dimen name="game_tv_X_width">30dp</dimen>
+    <dimen name="game_iv_height">100dp</dimen>
+    <dimen name="game_iv_width">100dp</dimen>
+    <dimen name="game_iv_marginTop">15dp</dimen>
+    <dimen name="game_tv_name_marginTop">5dp</dimen>
+    <dimen name="game_tv_role_marginTop">5dp</dimen>
+    <dimen name="game_tv_role_textSize">20sp</dimen>
+    <dimen name="game_btn_marginTop">25dp</dimen>
 
     <!--  -->
     <dimen name="activity_padding_horizontal">16dp</dimen>

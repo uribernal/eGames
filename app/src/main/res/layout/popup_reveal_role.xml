@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/game_ll_width"
+    android:layout_height="@dimen/game_ll_height"
+    android:layout_gravity="center"
+    android:background="@color/popupBackgroundColor"
+    android:orientation="vertical"
+    android:padding="@dimen/game_ll_padding">
+
+    <TextView
+        android:id="@+id/game_popup_tv_close"
+        android:layout_width="@dimen/game_tv_X_width"
+        android:layout_height="@dimen/game_tv_X_height"
+        android:layout_gravity="end"
+        android:background="@drawable/circle"
+        android:gravity="center"
+        android:text="@string/game_X"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/game_popup_iv_image"
+            android:layout_width="@dimen/game_iv_width"
+            android:layout_height="@dimen/game_iv_height"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/game_iv_marginTop"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_infiltrado" />
+
+        <TextView
+            android:id="@+id/game_popup_player_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/game_tv_name_marginTop"
+            android:text="@string/game_player_name"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/game_popup_player_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/game_tv_role_marginTop"
+            android:text="@string/game_player_role"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/game_tv_role_textSize" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/game_popup_btn_block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/game_btn_marginTop"
+        android:background="@drawable/game_button"
+        android:text="@string/game_block"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>

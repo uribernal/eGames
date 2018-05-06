@@ -9,7 +9,12 @@
     <color name="cardColor">#e5ffffff</color>
     <color name="bandColor">#ffd77b</color>
 
+    <!-- Select Players Activity -->
     <color name="deletePlayerColor">#ff6f60</color>
+
+    <!-- Game Activity -->
+    <color name="popupBackgroundColor">#2f333f</color>
+
 
     <!-- Test Colors -->
     <color name="testColor1">#2fff00</color>

@@ -22,6 +22,13 @@
     <string name="players_delete">DELETE</string>
     <string name="players_name">Player 0</string>
 
+    <!-- Game Activity -->
+    <!--*** Popup Reveal Role ***-->
+    <string name="game_X">X</string>
+    <string name="game_player_name">Player 0</string>
+    <string name="game_player_role">Infiltrado</string>
+    <string name="game_block">Bloquear</string>
+
 
     <string name="title_activity_settings">Settings</string>
 </resources>
