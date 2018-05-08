@@ -3,6 +3,7 @@
     package="com.example.obernalp.e_games">
 
     <application
+        android:name=".eGames"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,6 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".SelectPlayersActivity" />
+        <activity android:name=".SetRulesActivity" />
+        <activity android:name=".GameActivity" />
     </application>
 
 </manifest>
