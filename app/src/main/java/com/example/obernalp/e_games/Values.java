@@ -3,6 +3,7 @@ package com.example.obernalp.e_games;
 public interface Values {
 
     // Games
+    int NO_GAME = -1;
     int GAME_INFILTRADO = 1;
     int GAME_ASESINO = 2;
     int GAME_PSICOLOGO = 3;
@@ -15,7 +16,7 @@ public interface Values {
     int DEFAULT_NUMBER_INFILTRADOS = 1;
     int DEFAULT_NUMBER_PLAYERS = 4;
     int DEFAULT_DATABASE = RANDOM_DATABASE;
-    int DEFAULT_GAME = 1;
+    int DEFAULT_GAME = NO_GAME;
 
     // CODES for parameters
     String PLAYERS_CODE = "PLAYERS";

@@ -65,17 +65,16 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    public void setDefaultSettings(){
+    public void setDefaultSettings() {
         super.setDefaultSettings();
         this.modo_escribano = DEFAULT_MODO_ESCRIBANO;
-
     }
 
     @Override
     public void onBackPressed() {
         // Si click enrere preguntem si vol sortir
         new AlertDialog.Builder(this)
-        .setMessage("Are you sure you want to exit?")
+                .setMessage("Are you sure you want to exit?")
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

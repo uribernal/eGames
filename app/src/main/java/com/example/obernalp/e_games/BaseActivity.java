@@ -28,9 +28,11 @@ public class BaseActivity extends AppCompatActivity implements Values {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Si tornem a la pantalla principal guardem el jugadors i els parametres
         if (requestCode == CODE_ACTIVITY) {
-            this.players = data.getStringArrayListExtra(PLAYERS_CODE);
-            this.num_infiltrados = data.getIntExtra(NUM_INFILTRADOS_CODE, DEFAULT_NUMBER_INFILTRADOS);
-            this.database = data.getIntExtra(DATABASE_CODE, DEFAULT_DATABASE);
+            if (resultCode == RESULT_CHANGES) {
+                this.players = data.getStringArrayListExtra(PLAYERS_CODE);
+                this.num_infiltrados = data.getIntExtra(NUM_INFILTRADOS_CODE, DEFAULT_NUMBER_INFILTRADOS);
+                this.database = data.getIntExtra(DATABASE_CODE, DEFAULT_DATABASE);
+            }
         }
     }
 
@@ -50,31 +52,6 @@ public class BaseActivity extends AppCompatActivity implements Values {
         changeActivity(intent);
     }
 
-    protected void back2MainActivity() {
-        Intent intent = getIntent();
-        intent.putStringArrayListExtra(PLAYERS_CODE, players);
-        intent.putExtra(NUM_INFILTRADOS_CODE, num_infiltrados);
-        intent.putExtra(DATABASE_CODE, database);
-        intent.putExtra(GAME_CODE, game);
-        setResult(RESULT_CHANGES, intent);
-        finish();
-    }
-
-    protected void back2MSetRules(boolean changes) {
-        Intent intent = getIntent();
-        if (changes) {
-            setResult(RESULT_CHANGES, intent);
-            intent.putStringArrayListExtra(PLAYERS_CODE, players);
-            intent.putExtra(NUM_INFILTRADOS_CODE, num_infiltrados);
-            intent.putExtra(DATABASE_CODE, database);
-            intent.putExtra(GAME_CODE, game);
-        } else {
-            setResult(RESULT_NO_CHANGES, intent);
-
-        }
-        finish();
-    }
-
     protected void changeActivity(Intent intent) {
         // Afegim els parametres
         intent.putStringArrayListExtra(PLAYERS_CODE, players);
@@ -83,7 +60,7 @@ public class BaseActivity extends AppCompatActivity implements Values {
         intent.putExtra(GAME_CODE, game);
 
         // Start activity with code for return
-        startActivity(intent);
+        startActivityForResult(intent, CODE_ACTIVITY);
     }
 
     protected void showSnackBarMessage(String message, View parentView) {
@@ -110,6 +87,7 @@ public class BaseActivity extends AppCompatActivity implements Values {
         players = getIntent().getStringArrayListExtra(PLAYERS_CODE);
         num_infiltrados = getIntent().getIntExtra(NUM_INFILTRADOS_CODE, DEFAULT_NUMBER_INFILTRADOS);
         database = getIntent().getIntExtra(DATABASE_CODE, DEFAULT_DATABASE);
+        game = getIntent().getIntExtra(GAME_CODE, DEFAULT_GAME);
     }
 
 

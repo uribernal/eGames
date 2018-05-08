@@ -29,7 +29,6 @@ public class SetRulesActivity extends BaseActivity {
         // Posar la fletxa al nav bar
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-
         final RelativeLayout rl_players;
         final RelativeLayout rl_infiltrados;
         final RelativeLayout rl_database;
@@ -135,8 +134,7 @@ public class SetRulesActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        // Si click enrerecanviem
-        back2MainActivity();
+        finish();
     }
 
     @Override
