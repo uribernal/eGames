@@ -1,4 +1,4 @@
-package com.example.obernalp.e_games;
+package com.example.obernalp.e_games.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.support.design.widget.Snackbar;
+
+import com.example.obernalp.e_games.R;
+import com.example.obernalp.e_games.Values;
 
 import java.util.ArrayList;
 import java.util.Arrays;

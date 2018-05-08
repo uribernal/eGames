@@ -1,4 +1,4 @@
-package com.example.obernalp.e_games;
+package com.example.obernalp.e_games.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.obernalp.e_games.R;
 
 public class MainActivity extends BaseActivity {
     // Imatge del final

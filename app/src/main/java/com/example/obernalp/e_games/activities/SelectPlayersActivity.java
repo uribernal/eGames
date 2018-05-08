@@ -1,15 +1,19 @@
-package com.example.obernalp.e_games;
+package com.example.obernalp.e_games.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.obernalp.e_games.R;
+
 public class SelectPlayersActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_select_players);
+
     }
 
     @Override

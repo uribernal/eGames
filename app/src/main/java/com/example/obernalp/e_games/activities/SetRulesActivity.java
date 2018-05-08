@@ -1,4 +1,4 @@
-package com.example.obernalp.e_games;
+package com.example.obernalp.e_games.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.example.obernalp.e_games.R;
 
 import java.util.ArrayList;
 import java.util.Objects;
