@@ -31,17 +31,13 @@ public class SetRulesActivity extends BaseActivity {
         // Posar la fletxa al nav bar
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        final RelativeLayout rl_players;
-        final RelativeLayout rl_infiltrados;
-        final RelativeLayout rl_database;
-
         // Recuperem els paràmetres del joc
-        setSettings();
+        //setSettings();
 
         // Botons per editar els paràmetres
-        rl_players = findViewById(R.id.rules_rl_players);
-        rl_infiltrados = findViewById(R.id.rules_rl_infiltrados);
-        rl_database = findViewById(R.id.rules_rl_database);
+        final RelativeLayout rl_players = findViewById(R.id.rules_rl_players);
+        final RelativeLayout rl_infiltrados = findViewById(R.id.rules_rl_infiltrados);
+        final RelativeLayout rl_database = findViewById(R.id.rules_rl_database);
 
         // Text per veure els paràmetres
         tv_num_players = findViewById(R.id.rules_tv_players);
@@ -147,6 +143,7 @@ public class SetRulesActivity extends BaseActivity {
                 this.players = data.getStringArrayListExtra(PLAYERS_CODE);
                 this.num_infiltrados = data.getIntExtra(NUM_INFILTRADOS_CODE, DEFAULT_NUMBER_INFILTRADOS);
                 this.database = data.getIntExtra(DATABASE_CODE, DEFAULT_DATABASE);
+                setTextViewTexts();
             }
         }
     }

@@ -9,6 +9,9 @@ import android.widget.ImageView;
 
 import com.example.obernalp.e_games.R;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MainActivity extends BaseActivity {
     // Imatge del final
     private ImageView iv_infiltrado;
@@ -44,7 +47,7 @@ public class MainActivity extends BaseActivity {
         asesino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showSnackBarMessage("Juego no disponible!", iv_infiltrado.getRootView());
+                showSnackBarMessage("Juego no disponible!", iv_infiltrado);
                 //changeActivity2SetRules(GAME_ASESINO);
             }
         });
@@ -63,6 +66,16 @@ public class MainActivity extends BaseActivity {
                 showSnackBarMessage("Juego no disponible!", iv_infiltrado);
                 //changeActivity2SetRules(GAME_LADRON);
             }
+        });
+
+        iv_infiltrado.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                showSnackBarMessage("Modo escribano", iv_infiltrado);
+                setModoEscribano();
+                return false;
+            }
+
         });
     }
 
@@ -88,5 +101,11 @@ public class MainActivity extends BaseActivity {
                         dialog.cancel();
                     }
                 }).create().show();
+    }
+
+    private void setModoEscribano() {
+        this.modo_escribano = true;
+        // Canviem el nom per defecte dels jugadors
+        this.players  = new ArrayList<>(Arrays.asList(ESCRIBANOS));
     }
 }

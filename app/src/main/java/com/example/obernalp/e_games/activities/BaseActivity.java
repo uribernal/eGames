@@ -25,6 +25,9 @@ public class BaseActivity extends AppCompatActivity implements Values {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blank);
+
+        // Recuperem els paràmetres del joc
+        setSettings();
     }
 
     @Override
