@@ -14,6 +14,12 @@
     <string name="rules_infiltrados">1 infiltrado</string>
     <string name="rules_database">Random</string>
     <string name="rules_play">Jugar</string>
+    <!--*** SetRules java Class ***-->
+    <string name="rules_random">Random</string>
+    <string name="rules_random_infiltrados">Número de infiltrados aleatorio</string>
+    <string name="rules_num_infiltrados">%1$d infiltrados</string>
+    <string name="rules_num_players">%1$d jugadores</string>
+    <string name="rules_1_player">1 jugador</string>
 
 
     <!-- Select Players Activity -->
@@ -21,6 +27,7 @@
     <!--*** Item Select Player ***-->
     <string name="players_delete">DELETE</string>
     <string name="players_name">Player 0</string>
+
 
     <!-- Game Activity -->
     <!--*** Popup Reveal Role ***-->

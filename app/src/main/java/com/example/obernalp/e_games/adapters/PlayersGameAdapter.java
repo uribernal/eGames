@@ -33,8 +33,8 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
         public MyViewHolder(View view) {
             super(view);
 
-            player_name = (TextView) view.findViewById(R.id.game_player_name);
-            startingPlayer = (TextView) view.findViewById(R.id.game_starting_player);
+            player_name = view.findViewById(R.id.game_player_name);
+            startingPlayer = view.findViewById(R.id.game_starting_player);
             viewForeground = view.findViewById(R.id.game_cv_container);
         }
 
@@ -136,20 +136,6 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
         public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
 
         }
-    }
-
-    public void removeItem(int position) {
-        players.remove(position);
-        // notify the item removed by position
-        // to perform recycler view delete animations
-        // NOTE: don't call notifyDataSetChanged()
-        notifyItemRemoved(position);
-    }
-
-    public void restoreItem(String name, int position) {
-        players.add(position, name);
-        // notify item added by position
-        notifyItemInserted(position);
     }
 
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
     android:background="@color/mainBackgroundColor"
-    tools:context="com.example.obernalp.e_games.activities.MainActivity">
+    tools:context="com.example.obernalp.e_games.activities.SetRulesActivity">
 
     <TextView
         android:id="@+id/rules_tv_title"

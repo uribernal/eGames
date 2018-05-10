@@ -156,27 +156,27 @@ public class SetRulesActivity extends BaseActivity {
 
     private void setNumberInfiltradosText() {
         if (num_infiltrados == 0) {
-            tv_num_infiltrados.setText("Número de infiltrados aleatorio");
+            tv_num_infiltrados.setText(R.string.rules_random_infiltrados);
         } else if (num_infiltrados == 1) {
-            tv_num_infiltrados.setText(num_infiltrados + " infiltrado");
+            tv_num_infiltrados.setText(R.string.rules_infiltrados);
         } else {
-            tv_num_infiltrados.setText(num_infiltrados + " infiltrados");
+            tv_num_infiltrados.setText(String.format(getResources().getString(R.string.rules_num_infiltrados), num_infiltrados));
         }
     }
 
     private void setPlayersText() {
         if (players.size() == 1) {
-            tv_num_players.setText(players.size() + " jugador");
+            tv_num_players.setText(R.string.rules_1_player);
         } else {
-            tv_num_players.setText(players.size() + " jugadores");
+            tv_num_players.setText(String.format(getResources().getString(R.string.rules_num_players), players.size()));
         }
     }
 
     private void setDatabaseText() {
         if (database == 0) {
-            tv_num_database.setText("Random");
+            tv_num_database.setText(R.string.rules_random);
         } else {
-            tv_num_database.setText("Caca");
+            tv_num_database.setText("");
         }
     }
 

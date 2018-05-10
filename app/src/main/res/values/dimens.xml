@@ -80,6 +80,18 @@
     <dimen name="game_tv_role_marginTop">5dp</dimen>
     <dimen name="game_tv_role_textSize">20sp</dimen>
     <dimen name="game_btn_marginTop">25dp</dimen>
+    <!--*** Item Game Player ***-->
+    <dimen name="game_cv_height">60dp</dimen>
+    <dimen name="game_cv_marginStart">40dp</dimen>
+    <dimen name="game_cv_marginEnd">40dp</dimen>
+    <dimen name="game_cv_marginTop">10dp</dimen>
+    <dimen name="game_cv_marginBottom">10dp</dimen>
+    <dimen name="game_cv_elevation">8dp</dimen>
+    <dimen name="game_cv_rl_padding">10dp</dimen>
+    <dimen name="game_cv_startingPlayer_height">20dp</dimen>
+    <dimen name="game_cv_startingPlayer_width">20dp</dimen>
+    <dimen name="game_cv_tv_textSize">18sp</dimen>
+
 
     <!--  -->
     <dimen name="activity_padding_horizontal">16dp</dimen>

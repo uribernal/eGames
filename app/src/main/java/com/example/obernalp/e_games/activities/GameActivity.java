@@ -2,8 +2,6 @@ package com.example.obernalp.e_games.activities;
 
 import android.app.Dialog;
 import android.content.res.Configuration;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -22,7 +20,6 @@ import java.util.ArrayList;
 public class GameActivity extends BaseActivity {
 
     private ArrayList<String> roles;
-    private RecyclerView recyclerView;
     private Infiltrado infiltrado_controler;
     private Dialog myDialog;
 
@@ -37,7 +34,7 @@ public class GameActivity extends BaseActivity {
 
         roles = infiltrado_controler.getRoles();
 
-        recyclerView = findViewById(R.id.game_rv_container);
+        RecyclerView recyclerView = findViewById(R.id.game_rv_container);
 
         final PlayersGameAdapter adapter = new PlayersGameAdapter(this, players, infiltrado_controler.getStartingPlayer());
         RecyclerView.LayoutManager mLayoutManager;
@@ -50,7 +47,6 @@ public class GameActivity extends BaseActivity {
         }
 
         recyclerView.setLayoutManager(mLayoutManager);
-        //recyclerView.addItemDecoration(new GameActivity().GridSpacingItemDecoration(1, dpToPx(0), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
@@ -89,7 +85,7 @@ public class GameActivity extends BaseActivity {
                             myDialog.dismiss();
                         }
                     });
-                    myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    //myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                     myDialog.show();
                 }
             }
