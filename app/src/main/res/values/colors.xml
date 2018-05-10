@@ -14,6 +14,7 @@
 
     <!-- Game Activity -->
     <color name="popupBackgroundColor">#2f333f</color>
+    <color name="blockedPlayerColor">#d4d4d4d4</color>
 
 
     <!-- Test Colors -->
