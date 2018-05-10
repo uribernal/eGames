@@ -40,7 +40,6 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
 
     }
 
-
     public PlayersGameAdapter(Context mContext, List<String> players, int startingPlayer) {
         this.mContext = mContext;
         this.players = players;
@@ -64,7 +63,7 @@ public class PlayersGameAdapter extends RecyclerView.Adapter<PlayersGameAdapter.
 
         holder.player_name.setText(player);
 
-        if (position != startingPlayer){
+        if (position != startingPlayer) {
             holder.startingPlayer.setBackgroundResource(0);
 
         }

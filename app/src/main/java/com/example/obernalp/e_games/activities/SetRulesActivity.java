@@ -80,7 +80,7 @@ public class SetRulesActivity extends BaseActivity {
         });
     }
 
-    private void showNumberInfiltradosSetter(){
+    private void showNumberInfiltradosSetter() {
         final RelativeLayout relativeLayout = new RelativeLayout(SetRulesActivity.this);
         final NumberPicker aNumberPicker = new NumberPicker(SetRulesActivity.this);
         aNumberPicker.setMaxValue(players.size());
@@ -129,7 +129,6 @@ public class SetRulesActivity extends BaseActivity {
     }
 
 
-
     @Override
     public void onBackPressed() {
         finish();
@@ -148,7 +147,7 @@ public class SetRulesActivity extends BaseActivity {
         }
     }
 
-    private void setTextViewTexts(){
+    private void setTextViewTexts() {
         setNumberInfiltradosText();
         setPlayersText();
         setDatabaseText();

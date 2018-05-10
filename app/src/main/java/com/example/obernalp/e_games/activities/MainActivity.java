@@ -106,6 +106,6 @@ public class MainActivity extends BaseActivity {
     private void setModoEscribano() {
         this.modo_escribano = true;
         // Canviem el nom per defecte dels jugadors
-        this.players  = new ArrayList<>(Arrays.asList(ESCRIBANOS));
+        this.players = new ArrayList<>(Arrays.asList(ESCRIBANOS));
     }
 }

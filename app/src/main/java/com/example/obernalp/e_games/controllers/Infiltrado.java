@@ -21,7 +21,7 @@ public class Infiltrado implements Values {
     //private int database;
     private int startingPlayer;
 
-    public Infiltrado(ArrayList<String> players, int num_infiltrados, int database){
+    public Infiltrado(ArrayList<String> players, int num_infiltrados, int database) {
         this.players = players;
         this.num_infiltrados = num_infiltrados;
         //this.database = database;
@@ -33,51 +33,48 @@ public class Infiltrado implements Values {
         this.defineRoles();
     }
 
-    public boolean isInfiltrado(int player){
+    public boolean isInfiltrado(int player) {
         return (roles.get(player).equals(INFILTRADO));
 
     }
 
-    private void defineRoles(){
+    private void defineRoles() {
         int number_players = players.size();
 
         Random rand = new Random();
         int word = rand.nextInt(data.size());
 
 
-        for(int i = 0; i < number_players; i++) {
+        for (int i = 0; i < number_players; i++) {
             roles.add(data.get(word));
             blocked_players.add(false);
         }
 
-        if (num_infiltrados == 0){
+        if (num_infiltrados == 0) {
             rand = new Random();
             num_infiltrados = rand.nextInt(number_players) + 1;
         }
 
-        for(int i = 0; i < num_infiltrados; i++) {
+        for (int i = 0; i < num_infiltrados; i++) {
             rand = new Random();
             int infiltrado = rand.nextInt(number_players);
             roles.set(infiltrado, INFILTRADO);
         }
-
     }
 
-    private void setStartingPlayer(){
+    private void setStartingPlayer() {
         int number_players = players.size();
 
         Random rand = new Random();
         this.startingPlayer = rand.nextInt(number_players);
-
     }
 
-    public int getStartingPlayer(){
+    public int getStartingPlayer() {
 
         return this.startingPlayer;
-
     }
 
-    public ArrayList<String> getRoles(){
+    public ArrayList<String> getRoles() {
         return this.roles;
     }
 
@@ -85,24 +82,22 @@ public class Infiltrado implements Values {
         return this.blocked_players;
     }*/
 
-    public Boolean getBlockedPlayer(int player){
+    public Boolean getBlockedPlayer(int player) {
         return this.blocked_players.get(player);
     }
 
-    public void blockPlayer(int player){
+    public void blockPlayer(int player) {
         this.blocked_players.set(player, true);
     }
 
-    private void setDatabase(int database){
-        if(database == 0){
+    private void setDatabase(int database) {
+        if (database == 0) {
             this.data = getAllData();
-        }else if (database == 1){
+        } else if (database == 1) {
             this.data = new ArrayList<>(Arrays.asList(getUbicaciones()));
-        }else{
+        } else {
             this.data = new ArrayList<>(Arrays.asList(getBadass()));
-
         }
-        
     }
 
     private ArrayList<String> getAllData() {
@@ -113,11 +108,10 @@ public class Infiltrado implements Values {
         Collections.sort(a1);
 
         return a1;
-
     }
 
     private String[] getUbicaciones() {
-        return new String[] {"Avión",
+        return new String[]{"Avión",
                 "Banco",
                 "Playa",
                 "Catedral",
@@ -148,7 +142,7 @@ public class Infiltrado implements Values {
     }
 
     private String[] getBadass() {
-        return new String[] {"Yonki", "Mamada", "Karma", "Cerilla",
+        return new String[]{"Yonki", "Mamada", "Karma", "Cerilla",
                 "Don Limpio",
                 "Jupiter",
                 "Dios",

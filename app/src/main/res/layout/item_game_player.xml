@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/game_cv_container"
     android:layout_width="match_parent"
-    app:cardBackgroundColor="@color/bandColor"
     android:layout_height="@dimen/game_cv_height"
-    android:layout_marginStart="@dimen/game_cv_marginStart"
-    android:layout_marginEnd="@dimen/game_cv_marginEnd"
-    android:layout_marginTop="@dimen/game_cv_marginTop"
     android:layout_marginBottom="@dimen/game_cv_marginBottom"
+    android:layout_marginEnd="@dimen/game_cv_marginEnd"
+    android:layout_marginStart="@dimen/game_cv_marginStart"
+    android:layout_marginTop="@dimen/game_cv_marginTop"
+    app:cardBackgroundColor="@color/bandColor"
     app:cardElevation="@dimen/game_cv_elevation">
 
     <RelativeLayout
@@ -20,19 +20,19 @@
             android:id="@+id/game_starting_player"
             android:layout_width="@dimen/game_cv_startingPlayer_height"
             android:layout_height="@dimen/game_cv_startingPlayer_width"
-            android:backgroundTint="@color/mainBackgroundColor"
-            android:background="@drawable/circle"
             android:layout_centerVertical="true"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/mainBackgroundColor"
             android:textAlignment="center" />
 
         <TextView
             android:id="@+id/game_player_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/game_cv_tv_textSize"
-            android:text="@string/game_player_name"
             android:layout_centerVertical="true"
-            android:textAlignment="center" />
+            android:text="@string/game_player_name"
+            android:textAlignment="center"
+            android:textSize="@dimen/game_cv_tv_textSize" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

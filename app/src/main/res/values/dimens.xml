@@ -42,7 +42,7 @@
     <dimen name="rules_card_iv_marginStart">20dp</dimen>
     <dimen name="rules_card_tv_marginStart">120dp</dimen>
     <dimen name="rules_card_tv_textSize">18sp</dimen>
-    <dimen name="rules_btn_marginTop">50dp</dimen>
+    <dimen name="rules_btn_marginTop">-15dp</dimen>
     <dimen name="rules_btn_height_with_margin">100dp</dimen>
     <dimen name="rules_btn_height">50dp</dimen>
     <dimen name="rules_btn_width">120dp</dimen>

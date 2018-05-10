@@ -54,7 +54,7 @@ public class GameActivity extends BaseActivity {
         recyclerView.addOnItemTouchListener(new PlayersGameAdapter.RecyclerTouchListener(getApplicationContext(), recyclerView, new PlayersGameAdapter.ClickListener() {
             @Override
             public void onClick(final View view, final int position) {
-                if(!infiltrado_controler.getBlockedPlayer(position)) {
+                if (!infiltrado_controler.getBlockedPlayer(position)) {
                     TextView txtclose;
                     TextView name;
                     TextView role;
@@ -95,7 +95,6 @@ public class GameActivity extends BaseActivity {
 
             }
         }));
-
 
 
     }

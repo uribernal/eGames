@@ -52,7 +52,7 @@ public class SelectPlayersAdapter extends RecyclerView.Adapter<SelectPlayersAdap
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        String player =  players.get(position);
+        String player = players.get(position);
 
         holder.player_name.setText(player);
 
@@ -61,17 +61,19 @@ public class SelectPlayersAdapter extends RecyclerView.Adapter<SelectPlayersAdap
 
     @Override
     public int getItemCount() {
-        if (players == null){
+        if (players == null) {
             return 0;
-        }else {
+        } else {
             return players.size();
         }
     }
+
     public interface ClickListener {
         void onClick(View view, int position);
 
         void onLongClick(View view, int position);
     }
+
     public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
         private GestureDetector gestureDetector;
@@ -94,6 +96,7 @@ public class SelectPlayersAdapter extends RecyclerView.Adapter<SelectPlayersAdap
                 }
             });
         }
+
         @Override
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
 
