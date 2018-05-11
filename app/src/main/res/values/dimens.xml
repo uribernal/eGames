@@ -80,6 +80,7 @@
     <dimen name="game_tv_role_marginTop">5dp</dimen>
     <dimen name="game_tv_role_textSize">20sp</dimen>
     <dimen name="game_btn_marginTop">25dp</dimen>
+    <dimen name="game_btn_marginBottom">10dp</dimen>
     <!--*** Item Game Player ***-->
     <dimen name="game_cv_height">60dp</dimen>
     <dimen name="game_cv_marginStart">40dp</dimen>

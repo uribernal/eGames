@@ -148,9 +148,8 @@
             android:layout_height="@dimen/rules_btn_height"
             android:layout_centerInParent="true"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/game_button"
+            android:background="@color/bandColor"
             android:elevation="8dp"
-            android:fitsSystemWindows="true"
             android:stateListAnimator="@null"
             android:text="@string/rules_play"
             android:translationZ="@dimen/rules_btn_translationZ" />
