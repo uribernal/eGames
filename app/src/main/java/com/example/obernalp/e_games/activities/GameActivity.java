@@ -22,7 +22,7 @@ public class GameActivity extends BaseActivity {
     private ArrayList<String> roles;
     private Infiltrado infiltrado_controler;
     private Dialog myDialog;
-
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,15 +34,13 @@ public class GameActivity extends BaseActivity {
 
         roles = infiltrado_controler.getRoles();
 
-        RecyclerView recyclerView = findViewById(R.id.game_rv_container);
+        recyclerView = findViewById(R.id.game_rv_container);
 
         final PlayersGameAdapter adapter = new PlayersGameAdapter(this, players, infiltrado_controler.getStartingPlayer());
         RecyclerView.LayoutManager mLayoutManager;
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            //portrait
-            mLayoutManager = new GridLayoutManager(getApplicationContext(), 1); //num columnes
+            mLayoutManager = new GridLayoutManager(getApplicationContext(), 2); //num columnes
         } else {
-            //landscape
             mLayoutManager = new GridLayoutManager(getApplicationContext(), 1); //num columnes
         }
 
@@ -95,7 +93,5 @@ public class GameActivity extends BaseActivity {
 
             }
         }));
-
-
     }
 }

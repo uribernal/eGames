@@ -2,9 +2,12 @@ package com.example.obernalp.e_games.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 
 import com.example.obernalp.e_games.R;
@@ -26,6 +29,15 @@ public class MainActivity extends BaseActivity {
 
         // Seteja les variables per defecte
         setDefaultSettings();
+
+        GridLayout gl = findViewById(R.id.main_gl_container);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            gl.setRowCount(1);
+            gl.setColumnCount(4);
+        } else {
+            gl.setRowCount(2);
+            gl.setColumnCount(2);
+        }
 
         // Botons dels jocs
         final CardView infiltrado = findViewById(R.id.main_cv_infiltrado);
