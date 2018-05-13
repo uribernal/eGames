@@ -35,6 +35,13 @@
     <string name="game_player_name">Player 0</string>
     <string name="game_player_role">Infiltrado</string>
     <string name="game_block">Bloquear</string>
+    <!--*** Settings ***-->
+    <string name="game_settings">Settings</string>
+    <string name="action_restart_game">Restart game</string>
+    <string name="action_edit_players">Edit players</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_help">Help</string>
+    <string name="action_log">Log</string>
 
 
     <string name="title_activity_settings">Settings</string>

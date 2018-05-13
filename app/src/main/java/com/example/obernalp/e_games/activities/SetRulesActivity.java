@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -67,7 +68,8 @@ public class SetRulesActivity extends BaseActivity {
         rl_database.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showSnackBarMessage("Opción no disponible", start_game);
+                //showSnackBarMessage("Opción no disponible", start_game);
+                showDatabaseSetter();
 
             }
         });
@@ -128,6 +130,77 @@ public class SetRulesActivity extends BaseActivity {
         alertDialog.show();
     }
 
+    private void showDatabaseSetter() {
+        final RelativeLayout relativeLayout = new RelativeLayout(SetRulesActivity.this);
+        final NumberPicker aNumberPicker = new NumberPicker(SetRulesActivity.this);
+
+        ArrayList<String> list = databaseManager.getListOfDatabase();
+        list.add(0, "All");
+        aNumberPicker.setDisplayedValues(list.toArray(new String[list.size()]));
+        aNumberPicker.setMaxValue(list.size() - 1);
+        aNumberPicker.setMinValue(0);
+        aNumberPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        // Valor seleccionat per defecte
+        aNumberPicker.setValue(database);
+
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(50, 50);
+        RelativeLayout.LayoutParams numPicerParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        numPicerParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+
+        relativeLayout.setLayoutParams(params);
+        relativeLayout.addView(aNumberPicker, numPicerParams);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SetRulesActivity.this);
+        alertDialogBuilder.setTitle("Select the set");
+        alertDialogBuilder.setView(relativeLayout);
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("Ok",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+                                database = aNumberPicker.getValue();
+                                setDatabaseText();
+
+                            }
+                        })
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+                                dialog.cancel();
+                            }
+                        })
+                .setNeutralButton("new Database",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+                                AlertDialog.Builder builderSingle = new AlertDialog.Builder(SetRulesActivity.this);
+                                builderSingle.setIcon(R.drawable.ic_assassin);
+                                builderSingle.setTitle("Enter name:");
+
+
+                                final EditText edittext = new EditText(SetRulesActivity.this);
+                                edittext.setHint("YOUR_DATABASE");
+
+                                builderSingle.setView(edittext).setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        //showSnackBarMessage("Opción no disponible", start_game);
+                                        String a = edittext.getText().toString();
+                                        if (!a.equals("")) {
+                                            changeActivity2SetDatabase(edittext.getText().toString());
+                                        }else {
+                                            showSnackBarMessage("Please enter a name", start_game);
+                                        }
+                                    }
+                                }).show();
+
+                            }
+                        });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -175,7 +248,8 @@ public class SetRulesActivity extends BaseActivity {
         if (database == 0) {
             tv_num_database.setText(R.string.rules_random);
         } else {
-            tv_num_database.setText("");
+            ArrayList<String> dbNames = databaseManager.getListOfDatabase();
+            tv_num_database.setText(dbNames.get(database - 1));
         }
     }
 

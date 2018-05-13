@@ -1,11 +1,17 @@
 package com.example.obernalp.e_games.activities;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,7 +36,7 @@ public class GameActivity extends BaseActivity {
 
         myDialog = new Dialog(this);
 
-        infiltrado_controler = new Infiltrado(players, num_infiltrados, database);
+        infiltrado_controler = new Infiltrado(players, num_infiltrados, database, databaseManager);
 
         roles = infiltrado_controler.getRoles();
 
@@ -93,5 +99,93 @@ public class GameActivity extends BaseActivity {
 
             }
         }));
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.game_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.edit_players:
+                Intent intent = new Intent(getApplicationContext(), SelectPlayersActivity.class);
+                intent.putStringArrayListExtra(PLAYERS_CODE, players);
+                startActivityForResult(intent, CODE_ACTIVITY);
+                return true;
+            case R.id.help:
+                return true;
+            case R.id.infi:
+                showSnackBarMessage(num_infiltrados + " infiltrados. " + players.get(infiltrado_controler.getStartingPlayer()) + " starts", recyclerView);
+                return true;
+            case R.id.action_new_game:
+                new AlertDialog.Builder(this)
+                        .setTitle("New Game?")
+                        .setMessage("Are you sure you want to finish this game?")
+                        .setNegativeButton(android.R.string.no, null)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                newGame();
+                                if (num_infiltrados > 1)
+                                    showSnackBarMessage(infiltrado_controler.getInfiltrados() + " eran infiltrados", recyclerView);
+                                else
+                                    showSnackBarMessage(infiltrado_controler.getInfiltrados() + " era infiltrado", recyclerView);
+                            }
+                        }).create().show();
+
+                return true;
+            case android.R.id.home:
+                new AlertDialog.Builder(this)
+                        .setTitle("Really Exit?")
+                        .setMessage("Are you sure you want to exit?")
+                        .setNegativeButton(android.R.string.no, null)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                Intent intent = getIntent();
+                                intent.putStringArrayListExtra(PLAYERS_CODE, players);
+                                setResult(RESULT_CHANGES, intent);
+                                finish();
+                            }
+                        }).create().show();
+                return true;
+            case R.id.action_settings:
+                // launch settings activity
+                //startActivity(new Intent(GameActivity.this, SettingsActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void newGame() {
+        infiltrado_controler = new Infiltrado(players, num_infiltrados, database, databaseManager);
+
+        roles = infiltrado_controler.getRoles();
+        final PlayersGameAdapter adapter = new PlayersGameAdapter(this, players, infiltrado_controler.getStartingPlayer());
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Really Exit?")
+                .setMessage("Are you sure you want to exit?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Intent intent = getIntent();
+                        intent.putStringArrayListExtra(PLAYERS_CODE, players);
+                        setResult(RESULT_CHANGES, intent);
+                        finish();
+                    }
+                }).create().show();
     }
 }

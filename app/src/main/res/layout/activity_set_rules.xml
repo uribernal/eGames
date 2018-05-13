@@ -83,7 +83,7 @@
                     android:contentDescription="@string/rules_infiltrados"
                     android:fitsSystemWindows="true"
                     android:gravity="center_vertical"
-                    android:src="@drawable/ic_infiltrado" />
+                    android:src="@drawable/ic_infiltrado_lila" />
 
                 <TextView
                     android:id="@+id/rules_tv_infiltrados"
@@ -115,7 +115,7 @@
                     android:contentDescription="@string/rules_database"
                     android:fitsSystemWindows="true"
                     android:gravity="center_vertical"
-                    android:src="@drawable/ic_oveja" />
+                    android:src="@drawable/ic_database" />
 
                 <TextView
                     android:id="@+id/rules_tv_database"

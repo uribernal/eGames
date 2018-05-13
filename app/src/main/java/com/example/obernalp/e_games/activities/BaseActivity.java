@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 
 import com.example.obernalp.e_games.R;
 import com.example.obernalp.e_games.Values;
+import com.example.obernalp.e_games.database.DatabaseManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +21,7 @@ public class BaseActivity extends AppCompatActivity implements Values {
     protected int num_infiltrados;
     protected int database;
     protected int game;
+    protected DatabaseManager databaseManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,12 @@ public class BaseActivity extends AppCompatActivity implements Values {
 
     protected void changeActivity2Game() {
         Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+        changeActivity(intent);
+    }
+
+    protected void changeActivity2SetDatabase(String db_name) {
+        Intent intent = new Intent(getApplicationContext(), CreateDatabaseActivity.class);
+        intent.putExtra(NEW_DB_NAME, db_name);
         changeActivity(intent);
     }
 
@@ -94,6 +102,7 @@ public class BaseActivity extends AppCompatActivity implements Values {
         num_infiltrados = getIntent().getIntExtra(NUM_INFILTRADOS_CODE, DEFAULT_NUMBER_INFILTRADOS);
         database = getIntent().getIntExtra(DATABASE_CODE, DEFAULT_DATABASE);
         game = getIntent().getIntExtra(GAME_CODE, DEFAULT_GAME);
+        databaseManager = new DatabaseManager(getApplicationContext());
     }
 
 

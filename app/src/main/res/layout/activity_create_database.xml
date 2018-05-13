@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/createDB_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainBackgroundColor"
+    tools:context="com.example.obernalp.e_games.activities.SelectPlayersActivity">
+
+    <TextView
+        android:id="@+id/createDB_tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/players_tv_title_height"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/players_tv_title_marginTop"
+        android:fitsSystemWindows="true"
+        android:gravity="center"
+        android:text="@string/players_title"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/players_tv_title_textSize" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/createDB_rv_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/createDB_floatingButton"
+        android:layout_below="@id/createDB_tv_title"
+        android:layout_marginStart="@dimen/players_rv_marginStart" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/createDB_floatingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/players_btn_marginBottom"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_add_player"
+        app:backgroundTint="@color/colorPrimary" />
+
+
+</RelativeLayout>

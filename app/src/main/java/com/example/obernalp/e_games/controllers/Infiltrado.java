@@ -1,9 +1,9 @@
 package com.example.obernalp.e_games.controllers;
 
 import com.example.obernalp.e_games.Values;
+import com.example.obernalp.e_games.database.DatabaseManager;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
@@ -20,14 +20,16 @@ public class Infiltrado implements Values {
     private int num_infiltrados;
     //private int database;
     private int startingPlayer;
+    private DatabaseManager databaseManager;
 
-    public Infiltrado(ArrayList<String> players, int num_infiltrados, int database) {
+    public Infiltrado(ArrayList<String> players, int num_infiltrados, int database, DatabaseManager databaseManager) {
         this.players = players;
         this.num_infiltrados = num_infiltrados;
         //this.database = database;
         this.roles = new ArrayList<>();
         this.data = new ArrayList<>();
         this.blocked_players = new ArrayList<>();
+        this.databaseManager = databaseManager;
         setDatabase(database);
         setStartingPlayer();
         this.defineRoles();
@@ -91,100 +93,48 @@ public class Infiltrado implements Values {
     }
 
     private void setDatabase(int database) {
-        if (database == 0) {
+        if (database != 0){
+            data = databaseManager.getWords(databaseManager.getListOfDatabase().get(database-1));
+        }else{
             this.data = getAllData();
-        } else if (database == 1) {
-            this.data = new ArrayList<>(Arrays.asList(getUbicaciones()));
-        } else {
-            this.data = new ArrayList<>(Arrays.asList(getBadass()));
         }
     }
 
+    public ArrayList<String> getInfiltradosArray(){
+        ArrayList<String> infiltrados = new ArrayList<>();
+        for (int i = 0; i < players.size(); i++) {
+            if(roles.get(i).equals(INFILTRADO))
+                infiltrados.add(players.get(i));
+        }
+        return infiltrados;
+    }
+
+    public String getInfiltrados(){
+        String infiltrados = "";
+        if (getInfiltradosArray().size() >2) {
+            for (int i = 0; i < getInfiltradosArray().size() - 2; i++) {
+                infiltrados += getInfiltradosArray().get(i) + ", ";
+            }
+            infiltrados += getInfiltradosArray().get(getInfiltradosArray().size() - 2) + " y ";
+            infiltrados += getInfiltradosArray().get(getInfiltradosArray().size() - 1);
+        }else if (getInfiltradosArray().size() >1){
+            infiltrados += getInfiltradosArray().get(0) + " y ";
+            infiltrados += getInfiltradosArray().get(1);
+        }else{
+            infiltrados += getInfiltradosArray().get(0);
+        }
+        return infiltrados;
+    }
+
     private ArrayList<String> getAllData() {
-        ArrayList<String> a1 = new ArrayList<>(Arrays.asList(getUbicaciones()));
-        ArrayList<String> a2 = new ArrayList<>(Arrays.asList(getBadass()));
-        a1.removeAll(a2);
-        a1.addAll(a2);
-        Collections.sort(a1);
+        ArrayList<String> result = new ArrayList<>();
+        ArrayList<String> files = databaseManager.getListOfDatabase();
+        for (String db: files) {
+            result.removeAll(databaseManager.getWords(db));
+            result.addAll(databaseManager.getWords(db));
+        }
+        Collections.sort(result);
 
-        return a1;
-    }
-
-    private String[] getUbicaciones() {
-        return new String[]{"Avión",
-                "Banco",
-                "Playa",
-                "Catedral",
-                "Carpa de Circo",
-                "Fiesta de Empresa",
-                "Las cruzadas",
-                "Casino",
-                "Spa / Balneario Matutino",
-                "Embajada",
-                "Hospital",
-                "Hotel",
-                "Base Militar",
-                "Estudio de cine",
-                "Crucero Marítimo",
-                "Tren de Pasajeros",
-                "Barco pirata",
-                "Estación Polar",
-                "Comisaría de Policía",
-                "Restaurante",
-                "Colegio",
-                "Garage",
-                "Estación Espacial",
-                "Submarino",
-                "Supermercado",
-                "Teatro",
-                "Universidad",
-                "Pelotón de la Segunda Guerra Mundial"};
-    }
-
-    private String[] getBadass() {
-        return new String[]{"Yonki", "Mamada", "Karma", "Cerilla",
-                "Don Limpio",
-                "Jupiter",
-                "Dios",
-                "Caos",
-                "Plutón",
-                "Colilla",
-                "Moco",
-                "Camping",
-                "LSD",
-                "Doritos",
-                "Malabarista",
-                "Concierto",
-                "Vómito",
-                "Vacío",
-                "Resaca",
-                "Barbacoa",
-                "Pikachu",
-                "Fifa",
-                "Frodo Bolsón",
-                "Simpson",
-                "Mantel",
-                "Embarazada",
-                "Derrapar",
-                "Buzo",
-                "Incendio",
-                "Barco pirata",
-                "Náufrago",
-                "Catán",
-                "Ikea",
-                "Bate",
-                "Váter",
-                "Decathon",
-                "Ronaldinho",
-                "Hulk",
-                "Guacamole",
-                "69",
-                "Ping pong",
-                "Rosa",
-                "Sant Jordi",
-                "Ajedrez",
-                "Rey",
-                "Estrella"
-        };
+        return result;
     }
 }

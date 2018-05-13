@@ -188,14 +188,21 @@
 
     </GridLayout>
 
-    <ImageView xmlns:app="http://www.picturetopeople.org/text_generator/others/transparent/transparent-text-generator.html"
-        android:id="@+id/main_iv_infiltrado"
+    <RelativeLayout
         android:layout_width="@dimen/main_infiltrado_image_width"
         android:layout_height="@dimen/main_infiltrado_image_height"
         android:layout_below="@id/main_gl_container"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/main_infiltrado_image_marginTop"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/main_txt_infiltrado" />
+        android:layout_centerHorizontal="true">
+
+        <ImageView xmlns:app="http://www.picturetopeople.org/text_generator/others/transparent/transparent-text-generator.html"
+            android:id="@+id/main_iv_infiltrado"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_marginTop="@dimen/main_infiltrado_image_marginTop"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/main_txt_infiltrado" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

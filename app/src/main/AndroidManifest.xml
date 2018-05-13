@@ -21,6 +21,7 @@
         <activity android:name=".activities.SelectPlayersActivity" />
         <activity android:name=".activities.SetRulesActivity" />
         <activity android:name=".activities.GameActivity" />
+        <activity android:name=".activities.CreateDatabaseActivity"></activity>
     </application>
 
 </manifest>

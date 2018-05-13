@@ -23,6 +23,7 @@ public interface Values {
     String NUM_INFILTRADOS_CODE = "NUM_INFILTRADOS";
     String DATABASE_CODE = "DATABASE";
     String GAME_CODE = "GAME";
+    String NEW_DB_NAME = "NEW_DB";
 
     int CODE_ACTIVITY = 0;
 
