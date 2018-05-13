@@ -29,6 +29,7 @@ public class GameActivity extends BaseActivity {
     private Infiltrado infiltrado_controler;
     private Dialog myDialog;
     RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +102,6 @@ public class GameActivity extends BaseActivity {
         }));
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -121,7 +121,11 @@ public class GameActivity extends BaseActivity {
             case R.id.help:
                 return true;
             case R.id.infi:
-                showSnackBarMessage(num_infiltrados + " infiltrados. " + players.get(infiltrado_controler.getStartingPlayer()) + " starts", recyclerView);
+                if (infiltrado_controler.getInfiltradosArray().size() > 1)
+                    showSnackBarMessage(infiltrado_controler.getInfiltradosArray().size() + " infiltrados. " + players.get(infiltrado_controler.getStartingPlayer()) + " starts", recyclerView);
+                else
+                    showSnackBarMessage(infiltrado_controler.getInfiltradosArray().size() + " infiltrado. " + players.get(infiltrado_controler.getStartingPlayer()) + " starts", recyclerView);
+
                 return true;
             case R.id.action_new_game:
                 new AlertDialog.Builder(this)
@@ -131,11 +135,11 @@ public class GameActivity extends BaseActivity {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface arg0, int arg1) {
-                                newGame();
-                                if (num_infiltrados > 1)
+                                if (infiltrado_controler.getInfiltradosArray().size() > 1)
                                     showSnackBarMessage(infiltrado_controler.getInfiltrados() + " eran infiltrados", recyclerView);
                                 else
                                     showSnackBarMessage(infiltrado_controler.getInfiltrados() + " era infiltrado", recyclerView);
+                                newGame();
                             }
                         }).create().show();
 
@@ -166,7 +170,6 @@ public class GameActivity extends BaseActivity {
 
     private void newGame() {
         infiltrado_controler = new Infiltrado(players, num_infiltrados, database, databaseManager);
-
         roles = infiltrado_controler.getRoles();
         final PlayersGameAdapter adapter = new PlayersGameAdapter(this, players, infiltrado_controler.getStartingPlayer());
         recyclerView.setAdapter(adapter);
