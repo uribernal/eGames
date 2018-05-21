@@ -1,6 +1,5 @@
 package com.example.obernalp.e_games.controllers;
 
-import com.example.obernalp.e_games.Values;
 import com.example.obernalp.e_games.database.DatabaseManager;
 
 import java.util.ArrayList;
@@ -11,21 +10,14 @@ import java.util.Random;
  * Created by obernalp on 01/04/2018.
  */
 
-public class Infiltrado implements Values {
+public class Infiltrado extends Controller {
 
-    private ArrayList<String> players;
-    private ArrayList<Boolean> blocked_players;
-    private ArrayList<String> roles;
-    private ArrayList<String> data;
-    private int num_infiltrados;
-    //private int database;
-    private int startingPlayer;
-    private DatabaseManager databaseManager;
+
 
     public Infiltrado(ArrayList<String> players, int num_infiltrados, int database, DatabaseManager databaseManager) {
         this.players = players;
         this.num_infiltrados = num_infiltrados;
-        //this.database = database;
+        this.database = database;
         this.roles = new ArrayList<>();
         this.data = new ArrayList<>();
         this.blocked_players = new ArrayList<>();
@@ -76,6 +68,7 @@ public class Infiltrado implements Values {
         return this.startingPlayer;
     }
 
+    @Override
     public ArrayList<String> getRoles() {
         return this.roles;
     }

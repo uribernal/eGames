@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import com.example.obernalp.e_games.R;
 import com.example.obernalp.e_games.adapters.PlayersGameAdapter;
+import com.example.obernalp.e_games.controllers.Controller;
+import com.example.obernalp.e_games.controllers.Espia;
 import com.example.obernalp.e_games.controllers.Infiltrado;
 
 import java.util.ArrayList;
@@ -26,7 +28,9 @@ import java.util.ArrayList;
 public class GameActivity extends BaseActivity {
 
     private ArrayList<String> roles;
+    private Controller game_controller;
     private Infiltrado infiltrado_controler;
+
     private Dialog myDialog;
     RecyclerView recyclerView;
 
@@ -36,10 +40,10 @@ public class GameActivity extends BaseActivity {
         setContentView(R.layout.activity_game);
 
         myDialog = new Dialog(this);
+        game_controller = getGameController();
+        infiltrado_controler = (Infiltrado) getGameController();;
 
-        infiltrado_controler = new Infiltrado(players, num_infiltrados, database, databaseManager);
-
-        roles = infiltrado_controler.getRoles();
+        roles = game_controller.getRoles();
 
         recyclerView = findViewById(R.id.game_rv_container);
 
@@ -190,5 +194,19 @@ public class GameActivity extends BaseActivity {
                         finish();
                     }
                 }).create().show();
+    }
+
+    public Controller getGameController() {
+        if (game == GAME_INFILTRADO)
+            return new Infiltrado(players, num_infiltrados, database, databaseManager);
+        else if (game == GAME_ESPIA)
+            return new Espia(players, num_infiltrados, database, databaseManager);
+        else if (game == GAME_ASESINO)
+            return new Infiltrado(players, num_infiltrados, database, databaseManager);
+        else if (game == GAME_PSICOLOGO)
+            return new Infiltrado(players, num_infiltrados, database, databaseManager);
+        else
+            return new Infiltrado(players, num_infiltrados, database, databaseManager);
+
     }
 }

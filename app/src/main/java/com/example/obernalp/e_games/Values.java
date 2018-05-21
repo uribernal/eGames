@@ -5,9 +5,9 @@ public interface Values {
     // Games
     int NO_GAME = -1;
     int GAME_INFILTRADO = 1;
-    int GAME_ASESINO = 2;
-    int GAME_PSICOLOGO = 3;
-    int GAME_LADRON = 4;
+    int GAME_ESPIA = 2;
+    int GAME_ASESINO = 3;
+    int GAME_PSICOLOGO = 4;
 
     // Database
     int RANDOM_DATABASE = 0;
