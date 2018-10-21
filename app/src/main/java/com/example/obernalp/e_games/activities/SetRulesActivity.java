@@ -3,11 +3,13 @@ package com.example.obernalp.e_games.activities;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -30,6 +32,8 @@ public class SetRulesActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_rules);
+
+
         // Posar la fletxa al nav bar
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
@@ -37,9 +41,9 @@ public class SetRulesActivity extends BaseActivity {
         //setSettings();
 
         // Botons per editar els paràmetres
-        final RelativeLayout rl_players = findViewById(R.id.rules_rl_players);
-        final RelativeLayout rl_infiltrados = findViewById(R.id.rules_rl_infiltrados);
-        final RelativeLayout rl_database = findViewById(R.id.rules_rl_database);
+        final LinearLayout rl_players = findViewById(R.id.rules_rl_players);
+        final LinearLayout rl_infiltrados = findViewById(R.id.rules_rl_infiltrados);
+        final LinearLayout rl_database = findViewById(R.id.rules_rl_database);
 
         // Text per veure els paràmetres
         tv_num_players = findViewById(R.id.rules_tv_players);

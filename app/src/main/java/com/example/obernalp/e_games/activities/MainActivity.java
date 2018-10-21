@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -30,14 +29,15 @@ public class MainActivity extends BaseActivity {
         // Seteja les variables per defecte
         setDefaultSettings();
 
+        // Canvia files i columnes en funció de la orientació
         GridLayout gl = findViewById(R.id.main_gl_container);
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        /*if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             gl.setRowCount(1);
             gl.setColumnCount(4);
         } else {
             gl.setRowCount(2);
             gl.setColumnCount(2);
-        }
+        }*/
 
         // Botons dels jocs
         final CardView infiltrado = findViewById(R.id.main_cv_infiltrado);
@@ -59,8 +59,8 @@ public class MainActivity extends BaseActivity {
         asesino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showSnackBarMessage("Juego no disponible!", iv_infiltrado);
-                //changeActivity2SetRules(GAME_ASESINO);
+                //showSnackBarMessage("Juego no disponible!", iv_infiltrado);
+                changeActivity2SetRules(GAME_ESPIA);
             }
         });
 

@@ -56,8 +56,22 @@ public class BaseActivity extends AppCompatActivity implements Values {
     }
 
     protected void changeActivity2Game() {
-        Intent intent = new Intent(getApplicationContext(), GameActivity.class);
-        changeActivity(intent);
+        if (game == GAME_INFILTRADO){
+            Intent intent = new Intent(getApplicationContext(), InfiltradoGameActivity.class);
+            changeActivity(intent);
+        }else if (game == GAME_ESPIA){
+            Intent intent = new Intent(getApplicationContext(), EspiaGameActivity.class);
+            changeActivity(intent);
+        }else if (game == GAME_PSICOLOGO){
+            Intent intent = new Intent(getApplicationContext(), LoboGameActivity.class);
+            changeActivity(intent);
+        }else if (game == GAME_ASESINO){
+            Intent intent = new Intent(getApplicationContext(), EspiaGameActivity.class);
+            changeActivity(intent);
+        }else{
+            Intent intent = new Intent(getApplicationContext(), InfiltradoGameActivity.class);
+            changeActivity(intent);
+        }
     }
 
     protected void changeActivity2SetDatabase(String db_name) {

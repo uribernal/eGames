@@ -17,11 +17,6 @@ public class Controller implements Values {
     protected int startingPlayer;
     protected DatabaseManager databaseManager;
 
-    private void setStartingPlayer() {
-        int number_players = players.size();
-        Random rand = new Random();
-        this.startingPlayer = rand.nextInt(number_players);
-    }
 
     public int getStartingPlayer() {
         return this.startingPlayer;

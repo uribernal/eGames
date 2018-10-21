@@ -25,11 +25,11 @@ import com.example.obernalp.e_games.controllers.Infiltrado;
 
 import java.util.ArrayList;
 
-public class GameActivity extends BaseActivity {
+public class EspiaGameActivity extends BaseActivity {
 
     private ArrayList<String> roles;
-    private Controller game_controller;
-    private Infiltrado infiltrado_controler;
+    private ArrayList<String> cargos;
+    private Espia espia_controller;
 
     private Dialog myDialog;
     RecyclerView recyclerView;
@@ -40,14 +40,14 @@ public class GameActivity extends BaseActivity {
         setContentView(R.layout.activity_game);
 
         myDialog = new Dialog(this);
-        game_controller = getGameController();
-        infiltrado_controler = (Infiltrado) getGameController();;
+        espia_controller = new Espia(players, num_infiltrados, database, databaseManager);
 
-        roles = game_controller.getRoles();
+        roles = espia_controller.getRoles();
+        cargos = espia_controller.getCargos2();
 
         recyclerView = findViewById(R.id.game_rv_container);
 
-        final PlayersGameAdapter adapter = new PlayersGameAdapter(this, players, infiltrado_controler.getStartingPlayer());
+        final PlayersGameAdapter adapter = new PlayersGameAdapter(this, players, espia_controller.getStartingPlayer());
         RecyclerView.LayoutManager mLayoutManager;
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             mLayoutManager = new GridLayoutManager(getApplicationContext(), 2); //num columnes
@@ -63,7 +63,7 @@ public class GameActivity extends BaseActivity {
         recyclerView.addOnItemTouchListener(new PlayersGameAdapter.RecyclerTouchListener(getApplicationContext(), recyclerView, new PlayersGameAdapter.ClickListener() {
             @Override
             public void onClick(final View view, final int position) {
-                if (!infiltrado_controler.getBlockedPlayer(position)) {
+                if (!espia_controller.getBlockedPlayer(position)) {
                     TextView txtclose;
                     TextView name;
                     TextView role;
@@ -75,22 +75,23 @@ public class GameActivity extends BaseActivity {
                     role = myDialog.findViewById(R.id.game_popup_player_role);
                     btnBlock = myDialog.findViewById(R.id.game_popup_btn_block);
                     image = myDialog.findViewById(R.id.game_popup_iv_image);
-                    name.setText(players.get(position));
+                    name.setText(cargos.get(position));
                     role.setText(roles.get(position));
-                    if (!infiltrado_controler.isInfiltrado(position)) {
+                    image.setImageResource(R.drawable.ic_ladron);
+                    if (!espia_controller.isInfiltrado(position)) {
                         image.setImageResource(R.drawable.ic_cesar);
                     }
                     btnBlock.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            infiltrado_controler.blockPlayer(position);
+                            espia_controller.blockPlayer(position);
                             myDialog.dismiss();
                         }
                     });
                     txtclose.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            infiltrado_controler.blockPlayer(position);
+                            espia_controller.blockPlayer(position);
                             myDialog.dismiss();
                         }
                     });
@@ -125,10 +126,10 @@ public class GameActivity extends BaseActivity {
             case R.id.help:
                 return true;
             case R.id.infi:
-                if (infiltrado_controler.getInfiltradosArray().size() > 1)
-                    showSnackBarMessage(infiltrado_controler.getInfiltradosArray().size() + " infiltrados. " + players.get(infiltrado_controler.getStartingPlayer()) + " starts", recyclerView);
+                if (espia_controller.getInfiltradosArray().size() > 1)
+                    showSnackBarMessage(espia_controller.getInfiltradosArray().size() + " infiltrados. " + players.get(espia_controller.getStartingPlayer()) + " starts", recyclerView);
                 else
-                    showSnackBarMessage(infiltrado_controler.getInfiltradosArray().size() + " infiltrado. " + players.get(infiltrado_controler.getStartingPlayer()) + " starts", recyclerView);
+                    showSnackBarMessage(espia_controller.getInfiltradosArray().size() + " infiltrado. " + players.get(espia_controller.getStartingPlayer()) + " starts", recyclerView);
 
                 return true;
             case R.id.action_new_game:
@@ -139,10 +140,10 @@ public class GameActivity extends BaseActivity {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface arg0, int arg1) {
-                                if (infiltrado_controler.getInfiltradosArray().size() > 1)
-                                    showSnackBarMessage(infiltrado_controler.getInfiltrados() + " eran infiltrados", recyclerView);
+                                if (espia_controller.getInfiltradosArray().size() > 1)
+                                    showSnackBarMessage(espia_controller.getInfiltrados() + " eran infiltrados", recyclerView);
                                 else
-                                    showSnackBarMessage(infiltrado_controler.getInfiltrados() + " era infiltrado", recyclerView);
+                                    showSnackBarMessage(espia_controller.getInfiltrados() + " era infiltrado", recyclerView);
                                 newGame();
                             }
                         }).create().show();
@@ -165,7 +166,7 @@ public class GameActivity extends BaseActivity {
                 return true;
             case R.id.action_settings:
                 // launch settings activity
-                //startActivity(new Intent(GameActivity.this, SettingsActivity.class));
+                //startActivity(new Intent(InfiltradoGameActivity.this, SettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -173,9 +174,9 @@ public class GameActivity extends BaseActivity {
     }
 
     private void newGame() {
-        infiltrado_controler = new Infiltrado(players, num_infiltrados, database, databaseManager);
-        roles = infiltrado_controler.getRoles();
-        final PlayersGameAdapter adapter = new PlayersGameAdapter(this, players, infiltrado_controler.getStartingPlayer());
+        espia_controller = new Espia(players, num_infiltrados, database, databaseManager);
+        roles = espia_controller.getRoles();
+        final PlayersGameAdapter adapter = new PlayersGameAdapter(this, players, espia_controller.getStartingPlayer());
         recyclerView.setAdapter(adapter);
     }
 
@@ -196,17 +197,5 @@ public class GameActivity extends BaseActivity {
                 }).create().show();
     }
 
-    public Controller getGameController() {
-        if (game == GAME_INFILTRADO)
-            return new Infiltrado(players, num_infiltrados, database, databaseManager);
-        else if (game == GAME_ESPIA)
-            return new Espia(players, num_infiltrados, database, databaseManager);
-        else if (game == GAME_ASESINO)
-            return new Infiltrado(players, num_infiltrados, database, databaseManager);
-        else if (game == GAME_PSICOLOGO)
-            return new Infiltrado(players, num_infiltrados, database, databaseManager);
-        else
-            return new Infiltrado(players, num_infiltrados, database, databaseManager);
 
-    }
 }

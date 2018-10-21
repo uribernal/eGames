@@ -42,6 +42,10 @@ public class DatabaseManager {
         return result;
     }
 
+    public String getEspiaDatabase() {
+        return "espia/espia";
+    }
+
     public ArrayList<String> getWords(String file_name){
         ArrayList<String> ret = new ArrayList<>();
         BufferedReader reader = null;
@@ -68,6 +72,70 @@ public class DatabaseManager {
             }
         }
         return ret;
+    }
+
+    public ArrayList<String> getCargosEspia(String file_name, int word){
+        ArrayList<String> words = new ArrayList<>();
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(
+                    new InputStreamReader(context.getAssets().open(file_name + ".txt"), "UTF-8"));
+
+            // do reading, usually loop until end of file reading
+            String mLine;
+            int count = 0;
+            while ((mLine = reader.readLine()) != null) {
+                //process line
+                if (!mLine.equals("")) {
+                    if (mLine.startsWith("-") && count == word)
+                        words.add(mLine.split("- ")[1]);
+                    else if (!mLine.startsWith("-"))
+                        count++;
+                }
+            }
+
+        } catch (IOException e) {
+            //log the exception
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    //log the exception
+                }
+            }
+        }
+        return words;
+    }
+
+    public ArrayList<String> getRolesEspia(String file_name){
+        ArrayList<String> words = new ArrayList<>();
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(
+                    new InputStreamReader(context.getAssets().open(file_name + ".txt"), "UTF-8"));
+
+            // do reading, usually loop until end of file reading
+            String mLine;
+            while ((mLine = reader.readLine()) != null) {
+                //process line
+                if (!mLine.startsWith("-") && !mLine.equals(""))
+                    words.add(mLine);
+
+            }
+
+        } catch (IOException e) {
+            //log the exception
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    //log the exception
+                }
+            }
+        }
+        return words;
     }
 
     // agafar una paraula

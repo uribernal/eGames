@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/players_floatingButton"
         android:layout_below="@id/players_tv_title"
+        android:layout_marginBottom="80dp"
         android:layout_marginStart="@dimen/players_rv_marginStart" />
 
 

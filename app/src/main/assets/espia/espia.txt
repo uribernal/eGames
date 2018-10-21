@@ -1,0 +1,25 @@
+Escuela
+- Profesor de gimnasia
+- Estudiante
+- Conserje
+- Rector
+- Guardia de seguridad
+- Señora del almuerzo
+- Personal de mantenimiento
+
+Teatro de Broadway
+- Director
+- Apuntador
+- Taquillero
+- Visitante
+- Actor
+- Señora del guardaropía
+
+Restaurante
+- Anfitriona
+- Mesero
+- Chef
+- Guardia
+- Cliente
+- Crítico de comida
+- Músico

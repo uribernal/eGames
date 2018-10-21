@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
     android:background="@color/mainBackgroundColor"
-    android:orientation="vertical"
     tools:context="com.example.obernalp.e_games.activities.SetRulesActivity">
 
     <TextView
         android:id="@+id/rules_tv_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/rules_tv_title_height"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/rules_tv_title_marginTop"
         android:fitsSystemWindows="true"
         android:gravity="center"
@@ -24,6 +24,8 @@
         android:id="@+id/rules_cv_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/rules_tv_title"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/rules_card_marginBottom"
         android:layout_marginEnd="@dimen/rules_card_marginRight"
         android:layout_marginStart="@dimen/rules_card_marginLeft"
@@ -31,12 +33,11 @@
         android:elevation="@dimen/rules_card_elevation"
         app:cardCornerRadius="@dimen/rules_card_cardCornerRadius">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/rules_rl_players"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,7 +47,7 @@
                     android:id="@+id/rules_iv_players"
                     android:layout_width="@dimen/rules_card_iv_height"
                     android:layout_height="@dimen/rules_card_iv_width"
-                    android:layout_gravity="center_vertical"
+                    android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/rules_card_iv_marginStart"
                     android:contentDescription="@string/rules_players"
                     android:fitsSystemWindows="true"
@@ -57,25 +58,27 @@
                     android:id="@+id/rules_tv_players"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="20dp"
+                    android:layout_alignStart="@+id/rules_iv_players"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/rules_card_tv_marginStart"
                     android:fitsSystemWindows="true"
                     android:text="@string/rules_players"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/rules_card_tv_textSize" />
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/rules_rl_infiltrados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/rules_rl_players"
                 android:layout_marginTop="@dimen/rules_card_rl_marginTop">
 
                 <ImageView
                     android:id="@+id/rules_iv_infiltrados"
                     android:layout_width="@dimen/rules_card_iv_height"
                     android:layout_height="@dimen/rules_card_iv_width"
-                    android:layout_gravity="center_vertical"
+                    android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/rules_card_iv_marginStart"
                     android:contentDescription="@string/rules_infiltrados"
                     android:fitsSystemWindows="true"
@@ -86,18 +89,20 @@
                     android:id="@+id/rules_tv_infiltrados"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="20dp"
+                    android:layout_alignStart="@+id/rules_iv_infiltrados"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/rules_card_tv_marginStart"
                     android:fitsSystemWindows="true"
                     android:text="@string/rules_infiltrados"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/rules_card_tv_textSize" />
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/rules_rl_database"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/rules_rl_infiltrados"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="@dimen/rules_card_rl_marginTop">
 
@@ -105,7 +110,7 @@
                     android:id="@+id/rules_iv_database"
                     android:layout_width="@dimen/rules_card_iv_height"
                     android:layout_height="@dimen/rules_card_iv_width"
-                    android:layout_gravity="center_vertical"
+                    android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/rules_card_iv_marginStart"
                     android:contentDescription="@string/rules_database"
                     android:fitsSystemWindows="true"
@@ -116,35 +121,38 @@
                     android:id="@+id/rules_tv_database"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="20dp"
+                    android:layout_alignStart="@+id/rules_iv_database"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/rules_card_tv_marginStart"
                     android:fitsSystemWindows="true"
                     android:text="@string/rules_database"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/rules_card_tv_textSize" />
-            </LinearLayout>
+            </RelativeLayout>
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="@dimen/rules_btn_height_with_margin"
-        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/rules_cv_container"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/rules_btn_marginTop">
 
         <Button
             android:id="@+id/rules_btn_start_game"
             android:layout_width="@dimen/rules_btn_width"
             android:layout_height="@dimen/rules_btn_height"
+            android:layout_centerInParent="true"
             android:layout_gravity="center_horizontal"
             android:background="@color/bandColor"
             android:elevation="8dp"
             android:stateListAnimator="@null"
             android:text="@string/rules_play"
             android:translationZ="@dimen/rules_btn_translationZ" />
-    </LinearLayout>
+    </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>
