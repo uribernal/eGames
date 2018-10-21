@@ -62,7 +62,7 @@ public class BaseActivity extends AppCompatActivity implements Values {
         }else if (game == GAME_ESPIA){
             Intent intent = new Intent(getApplicationContext(), EspiaGameActivity.class);
             changeActivity(intent);
-        }else if (game == GAME_PSICOLOGO){
+        }else if (game == GAME_LOBO){
             Intent intent = new Intent(getApplicationContext(), LoboGameActivity.class);
             changeActivity(intent);
         }else if (game == GAME_ASESINO){

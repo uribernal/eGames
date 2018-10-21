@@ -10,31 +10,14 @@ public class Lobo extends Controller {
     private ArrayList<String> players;
     private ArrayList<Boolean> blocked_players;
     private ArrayList<String> roles;
-    private ArrayList<String> cargos;
-    private ArrayList<String> cargos2;
-    private ArrayList<String> data;
-    private int num_infiltrados;
-    private int database;
-    private int startingPlayer;
-    private DatabaseManager databaseManager;
+    private int num_infiltrados; // num_lobos
 
-    public Lobo(ArrayList<String> players, int num_infiltrados, int database, DatabaseManager databaseManager) {
+    public Lobo(ArrayList<String> players, int num_infiltrados) {
         this.players = players;
         this.num_infiltrados = num_infiltrados;
-        this.database = database;
         this.roles = new ArrayList<>();
-        this.cargos = new ArrayList<>();
-        this.cargos2 = new ArrayList<>();
-        this.data = new ArrayList<>();
         this.blocked_players = new ArrayList<>();
-        this.databaseManager = databaseManager;
-        setDatabase(database);
-        setStartingPlayer();
         this.defineRoles();
-    }
-
-    private void setDatabase(int database) {
-        data = databaseManager.getRolesEspia(databaseManager.getEspiaDatabase());
     }
 
 
@@ -42,17 +25,10 @@ public class Lobo extends Controller {
         int number_players = players.size();
         //String c =
         Random rand = new Random();
-        int word = rand.nextInt(data.size());
-        cargos = databaseManager.getCargosEspia(databaseManager.getEspiaDatabase(), word);
-
 
         for (int i = 0; i < number_players; i++) {
-            roles.add(data.get(word));
-
+            roles.add(OVEJA);
             blocked_players.add(false);
-
-            rand = new Random();
-            cargos2.add(cargos.get(rand.nextInt(cargos.size())));
         }
 
         if (num_infiltrados == 0) {
@@ -63,16 +39,14 @@ public class Lobo extends Controller {
         for (int i = 0; i < num_infiltrados; i++) {
             rand = new Random();
             int infiltrado = rand.nextInt(number_players);
-            roles.set(infiltrado, INFILTRADO);
-            cargos2.set(infiltrado, "");
-
+            roles.set(infiltrado, LOBO);
         }
     }
 
     public ArrayList<String> getInfiltradosArray(){
         ArrayList<String> infiltrados = new ArrayList<>();
         for (int i = 0; i < players.size(); i++) {
-            if(roles.get(i).equals(INFILTRADO))
+            if(roles.get(i).equals(LOBO))
                 infiltrados.add(players.get(i));
         }
         return infiltrados;
@@ -96,14 +70,8 @@ public class Lobo extends Controller {
     }
 
     public boolean isInfiltrado(int player) {
-        return (roles.get(player).equals(INFILTRADO));
+        return (roles.get(player).equals(LOBO));
 
-    }
-
-    public void setStartingPlayer() {
-        int number_players = players.size();
-        Random rand = new Random();
-        this.startingPlayer = rand.nextInt(number_players);
     }
 
     public int getStartingPlayer() {
@@ -120,9 +88,5 @@ public class Lobo extends Controller {
 
     public void blockPlayer(int player) {
         this.blocked_players.set(player, true);
-    }
-
-    public ArrayList<String> getCargos2() {
-        return cargos2;
     }
 }

@@ -24,6 +24,7 @@
             />
         <activity android:name=".activities.InfiltradoGameActivity" />
         <activity android:name=".activities.EspiaGameActivity" />
+        <activity android:name=".activities.LoboGameActivity" />
         <activity android:name=".activities.CreateDatabaseActivity"></activity>
     </application>
 

@@ -6,8 +6,9 @@ public interface Values {
     int NO_GAME = -1;
     int GAME_INFILTRADO = 1;
     int GAME_ESPIA = 2;
-    int GAME_ASESINO = 3;
-    int GAME_PSICOLOGO = 4;
+    int GAME_LOBO = 3;
+    int GAME_ASESINO = 4;
+    int GAME_PSICOLOGO = 5;
 
     // Database
     int RANDOM_DATABASE = 0;
@@ -33,6 +34,8 @@ public interface Values {
     // Codes fro GAMES
     String INFILTRADO = "INFILTRADO";
     String ASESINO = "ASESINO";
+    String LOBO = "LOBO";
+    String OVEJA = "OVEJA";
 
     // ESCRIBANO MODE
     boolean DEFAULT_MODO_ESCRIBANO = false;

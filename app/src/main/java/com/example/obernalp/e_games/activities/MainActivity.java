@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 showSnackBarMessage("Juego no disponible!", iv_infiltrado.getRootView());
-                //changeActivity2SetRules(GAME_PSICOLOG);
+                changeActivity2SetRules(GAME_LOBO);
             }
         });
 
